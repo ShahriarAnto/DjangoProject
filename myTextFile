@@ -1,0 +1,17 @@
+python manage.py startapp service
+
+python manage.py makemigrations
+
+python manage.py migrate
+
+
+
+Work Flow
+
+1. Fields inside models
+2. python manage.py makemigrations
+3. python manage.py migrate
+4. Connecting with installed apps
+5. Opening admin.py in service folder
+6. Inside service/admin.py file import Service class creating list_display tuple 
+   register it.

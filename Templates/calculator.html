@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Welcome to my simple Django Calculator.</h1>
+  <br>
+  <br>
+  <br>
+  <form method = "post">
+    {% csrf_token %}
+    <label>Value 1: </label>
+    <input type="text" name = "val_1" value = {{first_val}}>
+    <select name = "operator">
+        <option value="+" {% if operator == "+" %}selected{% endif %}>+</option>
+        <option value="-" {% if operator == "-" %}selected{% endif %}>-</option>
+        <option value="*" {% if operator == "*" %}selected{% endif %}>*</option>
+        <option value="/" {% if operator == "/" %}selected{% endif %}>/</option>
+    </select>
+    <label>Value 2: </label>
+    <input type="text" name = "val_2" value = {{second_val}}>
+    <br><br>
+    <button type="submit">Calculate</button>
+    <br><br>
+    <label>Answer</label>
+    <input type="text" name = "answer" value = {{output}}>
+  </form>
+
+  <br>
+  <br>
+  <br>
+
+{% endblock content %}

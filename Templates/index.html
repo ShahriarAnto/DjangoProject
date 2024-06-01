@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>
+  Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto numquam
+  repudiandae, accusamus unde laborum sunt ex vitae laboriosam quidem et fugit
+  cumque commodi voluptatum dolores, consequuntur quasi perferendis eius dicta!
+</h1>
+<img
+  src="/static/images/image-1.webp"
+  height="600px"
+  width="400px"
+  alt="Image not found"
+/>
+<img
+  src="/static/images/image-2.webp"
+  height="600px"
+  width="400px"
+  alt="Image not found"
+/>
+
+<h1>{{content}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {{names}}</h1>
+
+{%for n in names%}
+<div>{{forloop.revcounter}} {{n}}</div>
+{% endfor %}
+
+<table border="1" cellpadding="10px">
+  <tr>
+    <th>Name</th>
+    <th>Phone</th>
+  </tr>
+  {% for d in friend_details %}
+  <tr>
+    <td>{{d.name}}</td>
+    <td>{{d.phone}}</td>
+  </tr>
+  {% endfor %}
+</table>
+
+{%for n in numbers%} {%if n|divisibleby:2 != 0 %}
+<div>{{n}}</div>
+{% endif %} {% endfor %}
+
+{% endblock content %}

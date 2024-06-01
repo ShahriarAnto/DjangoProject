@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Welcome to Even Odd checker page</h1>
+  <br>
+  <br>
+  <br>
+  <form method = "post">
+    {% csrf_token %}
+    {% if error %}
+
+    <div class = "alert alert-danger" role= "alert">
+      Please, don't leave the field empty.
+    </div>
+
+    {% endif %}
+
+    <label>Value 1: </label>
+    <input type="text" name = "val_1" value = {{val_1}}>
+    <br><br>
+    <button type="submit">Check Even or Odd</button>
+    <br><br>
+    <label>Answer</label>
+    <input type="text" name = "answer" value = {{output}}>
+  </form>
+
+  <br>
+  <br>
+  <br>
+
+{% endblock content %}

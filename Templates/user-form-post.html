@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% block content %}
+
+  <br>
+  <br>
+  <br>
+  <form method = "post" action = {%url 'submitForm'%}>
+    {% csrf_token %}
+    {{form}}
+      {% comment %} <br>
+      <br>
+      <br>
+      <div class="form-group">
+        <label for="exampleInputEmail1">Email address</label>
+        <input type="text" class="form-control" name="num1" value = "{{num1}}" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Number">
+      </div>
+      <br>
+      <br>
+      <br>
+
+      <div class="form-group">
+        <label for="exampleInputEmail1">Email address</label>
+        <input type="text" class="form-control" value = "{{num2}}" name="num2" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Number">
+      </div>
+      <br>
+      <br>
+      <br> {% endcomment %}
+
+      
+      <button type="submit" class="btn btn-primary">Submit</button>
+
+      <br>
+      <br>
+      <br>
+      <div class="form-group">
+        <label>Answer</label>
+        <input type="text" class="form-control" value= "{{finalAns}}" placeholder="Answer will show here">
+      </div>
+      <br>
+      <br>
+      <br>
+
+
+    </form>
+
+  <br>
+  <br>
+  <br>
+
+{% endblock content %}

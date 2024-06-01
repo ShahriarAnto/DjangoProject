@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Welcome to Result Calculator</h1>
+  <br>
+
+  <form method = "post">
+    {% csrf_token %}
+    
+
+    <label>Subject 1: </label>
+    <input type="text" name = "s_1" value = {{subject_1}}>
+    <br><br>
+    <label>Subject 2: </label>
+    <input type="text" name = "s_2" value = {{subject_2}}>
+    <br><br>
+    <label>Subject 3: </label>
+    <input type="text" name = "s_3" value = {{subject_3}}>
+    <br><br>
+    <label>Subject 4: </label>
+    <input type="text" name = "s_4" value = {{subject_4}}>
+    <br><br>
+    <label>Subject 5: </label>
+    <input type="text" name = "s_5" value = {{subject_5}}>
+    <br><br>
+
+    <button type="submit">Calculate</button>
+    <br><br>
+    <label>Total: </label>
+    <input type="text" name = "total" value = {{total}}>
+    <br><br>
+    <label>Percentage: </label>
+    <input type="text" name = "per" value = {{percentage}}>
+    <br><br>
+    <label>Division: </label>
+    <input type="text" name = "per" value = {{division}}>
+
+  </form>
+
+  <br>
+  
+
+{% endblock content %}

@@ -1,0 +1,84 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <body>
+
+
+    <br>
+    
+
+    <div class="container-fluid">
+      <div class="row">
+
+        {% for u in serviceData %}
+
+        <div class="col-sm-6 d-flex justify-content-center">
+          <div class="card" style="width: 20rem;>
+            <img class="card-img-top" src="..." alt="Card image cap">
+            <div class="card-body">
+              <i class="{{u.service_icon}}"></i>
+              <h5 class="card-title">{{u.service_title}}</h5>
+              <p class="card-text">{{u.service_des | upper | safe }}</p>
+              <a href="#" class="btn btn-primary">a button</a>
+            </div>
+          </div>
+        </div>
+
+        {% endfor %}
+
+      </div>
+    </div>
+
+    <br>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    {% comment %} <h1>{{content}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {{names}}</h1>
+
+    <h1>{% lorem 1 b random %}</h1>
+
+    {%for n in names%}
+    <div>{{forloop.revcounter}} {{n}}</div>
+    {% endfor %}
+
+    <table border="1" cellpadding="10px">
+      <tr>
+        <th>Name</th>
+        <th>Phone</th>
+      </tr>
+      {% for d in friend_details %}
+      <tr>
+        <td>{{d.name}}</td>
+        <td>{{d.phone}}</td>
+      </tr>
+      {% endfor %}
+    </table>
+
+    {%for n in numbers%} {%if n|divisibleby:2 != 0 %}
+    <div>{{n}}</div>
+    {% endif %} {% endfor %} {% endcomment %}
+  </body>
+
+{% endblock content %}
