@@ -2,6 +2,16 @@
 
 {% block content %}
 
+<br>
+
+<marquee style="color:red;" onmouseover = "stop()" onmouseout = "start()">
+
+  {% for news in newsData %}
+  <a href = "newsDetails/{{ news.id }}" > <b>{{news.news_title}}</b> </a> &nbsp &nbsp
+  {% endfor %}
+  
+</marquee>
+
 <h1>
   Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto numquam
   repudiandae, accusamus unde laborum sunt ex vitae laboriosam quidem et fugit

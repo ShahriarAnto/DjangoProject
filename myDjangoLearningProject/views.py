@@ -2,10 +2,19 @@ from django.http import HttpResponse,HttpResponseRedirect
 from django.shortcuts import render
 from .forms import usersForm
 from service.models import Service
+from News.models import News
 
+def newsDetails(request , news_id):
+    newsDetails = News.objects.get(id = news_id)
+    data = {
+        'newsDetails' :  newsDetails
+    }
+    return render(request , "newsDetails.html" , data)
 
 def homePage(request):
+    newsData = News.objects.all();
     data = {
+        'newsData' : newsData,
         'title': "Home Page",
         'content': "Welcome to my Django Project.",
         'names': ["Anto", "Nahid" , "Imtiaj"],
@@ -56,9 +65,14 @@ def anotherFunction(request):
     return HttpResponse("<h1>This view from another function</h1>")
 
 def anotherPageFunction(request):
-    serviceData = Service.objects.all().order_by('-service_title')
+    serviceData = Service.objects.all().order_by('service_title')
     # for a in serviceData:
     #     print(a)
+
+    if request.method == "GET":
+        st = request.GET.get('searchData')
+        if st != None:
+            serviceData = Service.objects.filter(service_title__icontains = st)
 
     data = {
         'serviceData' : serviceData

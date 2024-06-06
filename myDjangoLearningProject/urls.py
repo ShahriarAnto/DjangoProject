@@ -31,5 +31,6 @@ urlpatterns = [
     path('calculator' , views.calculatorProject , name = 'calculator'),
     path('evenOdd' , views.evenOdd , name = 'evenOdd'),
     path('markSheet/' , views.markSheet , name = 'markSheet'),
+    path('newsDetails/<news_id>' , views.newsDetails , name = 'newsDetails'),
 
 ]

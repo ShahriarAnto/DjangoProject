@@ -8,6 +8,18 @@
     
 
     <div class="container-fluid">
+
+     
+        <form method = "get">
+
+          <input type="text" placeholder="Search Here" name = "searchData">
+          <input type="submit" value = "Search">
+          
+        </form>
+        <br>
+       
+
+
       <div class="row">
 
         {% for u in serviceData %}
@@ -24,9 +36,13 @@
           </div>
         </div>
 
+        {% empty %}
+          No Data Found
+
         {% endfor %}
 
       </div>
+
     </div>
 
     <br>
