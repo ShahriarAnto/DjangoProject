@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <body>
+
+    {% comment %} <h1> {{ serviceDetails.service_title }} </h1>
+
+    <br>
+
+    <p> {{ serviceDetails.service_des }} </p> {% endcomment %}
+    
+
+    <h1> {{ serviceDetails.service_title }}
+
+    <p> {{ serviceDetails.service_des | safe }} </p>
+    
+</body>
+
+{% endblock content %}

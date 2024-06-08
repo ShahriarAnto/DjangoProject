@@ -3,6 +3,9 @@ from django.shortcuts import render
 from .forms import usersForm
 from service.models import Service
 from News.models import News
+from autoslug import AutoSlugField
+from django.core.paginator import Paginator
+
 
 def newsDetails(request , news_id):
     newsDetails = News.objects.get(id = news_id)
@@ -66,16 +69,23 @@ def anotherFunction(request):
 
 def anotherPageFunction(request):
     serviceData = Service.objects.all().order_by('service_title')
+    paginator = Paginator(serviceData , 2)
+    page_number = request.GET.get('page')
+    ServiceDataFinal = paginator.get_page(page_number)
+    totalPage = ServiceDataFinal.paginator.num_pages
+
     # for a in serviceData:
     #     print(a)
 
     if request.method == "GET":
         st = request.GET.get('searchData')
         if st != None:
-            serviceData = Service.objects.filter(service_title__icontains = st)
+            ServiceDataFinal = Service.objects.filter(service_title__icontains = st)
 
     data = {
-        'serviceData' : serviceData
+        'serviceData' : ServiceDataFinal,
+        'lastPage' : totalPage,
+        'totalPageList' : [n+1 for n in range(totalPage)]
     }
 
     return render(request , "another-page.html" , data)
@@ -211,3 +221,15 @@ def markSheet(request):
         pass
 
     return render(request , "markSheet.html" , data)
+
+
+def serviceDetails(request , service_slug):
+
+    print("This is service id ",service_slug)
+    serviceDetails = Service.objects.get(service_slug = service_slug)
+
+    data = {
+        'serviceDetails' : serviceDetails
+    }
+
+    return render(request , "serviceDetails.html" , data)

@@ -17,8 +17,6 @@
           
         </form>
         <br>
-       
-
 
       <div class="row">
 
@@ -29,7 +27,7 @@
             <img class="card-img-top" src="..." alt="Card image cap">
             <div class="card-body">
               <i class="{{u.service_icon}}"></i>
-              <h5 class="card-title">{{u.service_title}}</h5>
+              <a href = "/serviceDetails/{{ u.service_slug }}" > <h5 class="card-title">{{u.service_title}}</h5></a>
               <p class="card-text">{{u.service_des | upper | safe }}</p>
               <a href="#" class="btn btn-primary">a button</a>
             </div>
@@ -42,6 +40,43 @@
         {% endfor %}
 
       </div>
+
+      <br><br>
+
+        <nav aria-label="...">
+          <ul class="pagination">
+
+          {% if serviceData.has_previous %}
+
+            <li class="page-item">
+              <a class="page-link" href="/another-page-view/?page=1" tabindex="-1">First</a>
+            </li>
+            <li class="page-item">
+              <a class="page-link" href="/another-page-view/?page={{ serviceData.previous_page_number }}" tabindex="-1">Previous</a>
+            </li>
+          {% endif %}
+
+
+          {% for n in totalPageList %}
+            {% comment %} <li class="page-item"><a class="page-link" href="#">1</a></li>
+            <li class="page-item">
+              <a class="page-link" href="#">2 <span class="sr-only">(current)</span></a>
+            </li> {% endcomment %}
+            <li class="page-item active"><a class="page-link" href="/another-page-view/?page={{ n }}">{{ n }}</a></li>
+
+          {% endfor %}
+
+          {% if serviceData.has_next %}
+            <li class="page-item">
+              <a class="page-link" href="/another-page-view/?page={{ serviceData.next_page_number }}">Next</a>
+            </li>
+
+            <li class="page-item">
+              <a class="page-link" href="/another-page-view/?page={{ lastPage }}">Last</a>
+            </li>
+          {% endif %}
+          </ul>
+        </nav>
 
     </div>
 

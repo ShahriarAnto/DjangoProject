@@ -32,5 +32,6 @@ urlpatterns = [
     path('evenOdd' , views.evenOdd , name = 'evenOdd'),
     path('markSheet/' , views.markSheet , name = 'markSheet'),
     path('newsDetails/<news_id>' , views.newsDetails , name = 'newsDetails'),
+    path('serviceDetails/<service_slug>' , views.serviceDetails , name = 'serviceDetails'),
 
 ]
